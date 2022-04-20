@@ -1,0 +1,24 @@
+{%- comment -%}
+	Custom JS code which is used in ALL pages in shop
+{%- endcomment -%}
+<script>
+      
+  /* toggle search input content on mobile with plain js clicking search icon */
+  var ready = (callback) => {
+    if (document.readyState != "loading") callback();
+    else document.addEventListener("DOMContentLoaded", callback);
+  }
+
+  ready(() => {
+    var searchIcon = document.querySelector('.header .mobile_search_icon');
+    var searchDropdownContent = document.querySelector('.mobile_search_dropdown');
+	searchDropdownContent.classList.add('hide');
+    searchIcon.addEventListener("click", (e) => {
+      if (searchDropdownContent.classList.contains("show")) {
+        searchDropdownContent.classList.replace("show", "hide");
+      } else if (searchDropdownContent.classList.contains("hide")) {
+        searchDropdownContent.classList.replace("hide", "show");
+      }
+    }); 
+  });
+</script>

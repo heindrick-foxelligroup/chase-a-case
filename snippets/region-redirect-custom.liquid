@@ -1,0 +1,158 @@
+{% comment %}
+******************************************
+	Info:
+		Handles redirects between US and Europe store variants.
+		
+		For company staff, these are URL query parameters which 
+		can be used to switch between variants without using VPN:
+
+		* ?region=eu (redirects to EU, and keeps the user there)
+		* ?region=us (redirects to US, and keeps the user there)
+		* ?region=clear (cleans the redirect cookies, reverting to stock behaviour)
+		
+    Author: Edvinas Kilbauskas
+    Date created: 2021-11-03
+    Included in: layout/theme.liquid
+******************************************
+{% endcomment %}
+
+{% if content_for_header contains "previewBarInjector.init();" %}
+  Preview mode. Theme ID {{ theme.id }}
+{% elsif content_for_header contains "Shopify.designMode" %}
+  Customizer mode. Theme ID {{ theme.id }}
+{% else %}
+
+  <script>
+
+    const domains = {
+      eu: "eu.mindfulsouls.com",
+      us: "mindfulsouls.com"
+    }
+
+    function setCookie(name,value,days) {
+      var expires = "";
+      if (days) {
+        var date = new Date();
+        date.setTime(date.getTime() + (days*24*60*60*1000));
+        expires = "; expires=" + date.toUTCString();
+      }
+      document.cookie = name + "=" + (value || "")  + expires + "; path=/";
+    }
+
+    function getCookie(name) {
+      var nameEQ = name + "=";
+      var ca = document.cookie.split(';');
+      for(var i=0;i < ca.length;i++) {
+        var c = ca[i];
+        while (c.charAt(0)==' ') c = c.substring(1,c.length);
+        if (c.indexOf(nameEQ) == 0) return c.substring(nameEQ.length,c.length);
+      }
+      return null;
+    }
+
+    function eraseCookie(name) {   
+      document.cookie = name +'=; Path=/; Expires=Thu, 01 Jan 1970 00:00:01 GMT;';
+    }
+
+    function getParamsURL() {
+      const urlSearchParams = new URLSearchParams(window.location.search);
+      const params = Object.fromEntries(urlSearchParams.entries()); 
+      return params;
+    }
+
+    function getCurrentRegion(){
+      const domain = new URL(location).hostname;
+      let region = "unknown";
+
+      switch(domain.toLowerCase()){
+        case "eu.mindfulsouls.com":
+          region = "eu";
+          break;
+        case "mindfulsouls.com":
+          region = "us";
+          break;
+      }
+
+      return region;
+    }
+
+    function getWantedRegion(){
+      const urlParams = getParamsURL();
+      const regionCookie = getCookie("store-region");
+      let wantedRegion = getCurrentRegion();
+
+      if(hasValidRegionQuery()){
+        if(urlParams.region != "clear"){ 
+          wantedRegion = urlParams.region;
+        }
+      }else if(hasValidRegionCookie()){
+        wantedRegion = regionCookie;
+      }
+
+      return wantedRegion;
+    }
+
+    function checkRegionAndRedirect(clearCookies){
+      if(getCookie("user-region") == null || getCookie("user-region") != getCurrentRegion() || clearCookies == true){
+        fetch("https://ipinfo.io/json?token=dddf281f6f5b8c")
+        .then(response => response.json())
+        .then(data => {
+          console.log("fetched geolocation information");
+          if(data.timezone.includes("Europe")){
+            setCookie("user-region", "eu");
+            if(getCurrentRegion() != "eu"){
+              window.location.href =  "https://" + domains.eu + (clearCookies && getCurrentRegion() != "eu" ? "?region=clear" : "");
+            }
+          }else if(data.country == "US"){
+            setCookie("user-region", "us"); 
+            if(getCurrentRegion() != "us"){
+              window.location.href =  "https://" + domains.us + (clearCookies && getCurrentRegion() != "us" ? "?region=clear" : "");
+            }
+          }
+        });
+      }
+
+    }
+
+    function hasValidRegionCookie(){
+      const regionCookie = getCookie("store-region");
+      return (regionCookie !== null && (regionCookie == "eu" || regionCookie == "us" || regionCookie == "clear"));
+    }
+
+    function hasValidRegionQuery(){
+      const urlParams = getParamsURL();
+      return urlParams.hasOwnProperty("region") && 
+        (urlParams.region.toLowerCase() == "eu" || 
+         urlParams.region.toLowerCase() == "us" ||
+         urlParams.region.toLowerCase() == "clear"
+        );
+    }
+
+    if(hasValidRegionQuery()){
+      if(getParamsURL().region == "clear"){
+        eraseCookie("store-region"); 
+        eraseCookie("user-region");
+      }else{
+        setCookie("store-region", getWantedRegion()); 
+      }
+    }
+
+    if(getWantedRegion() != getCurrentRegion() && getCurrentRegion() != "unknown"){
+      const wantedRegion = getWantedRegion();
+      const wantedDomain = domains[wantedRegion];
+
+      window.location.href = "https://" + wantedDomain + "?region=" + wantedRegion;
+    }
+
+    if(hasValidRegionCookie() == false && hasValidRegionQuery() == false){
+      checkRegionAndRedirect(false); 
+    }
+
+    if(hasValidRegionQuery() && getParamsURL().region == "clear"){
+      checkRegionAndRedirect(true); 
+    }
+
+
+  </script>
+
+{% endif %}

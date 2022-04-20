@@ -1,0 +1,11 @@
+{% comment %}
+
+	Each time the settings are changed in the Instafeed app, this file is deleted / reset to the standard file.
+	Every time you change something here, save the changes in the instafeed-backup.liquid file.
+
+	Last changes: 2022-03-25 Zilvinas
+
+{% endcomment %}
+<style>#insta-feed{width:{{section.settings.feed_width}}%;margin-top:{{section.settings.margin_top_desk}}px;margin-bottom:{{section.settings.margin_bottom_desk}}px;}#insta-feed h2{font-size:{{section.settings.heading_size_desk}}px;font-family: {{section.settings.heading_font.family }};}@media(max-width: 767px){#insta-feed h2{font-size:{{section.settings.heading_size_mob}}px;}#insta-feed{margin-top:{{section.settings.margin_top_mob}}px;margin-bottom:{{section.settings.margin_bottom_mob}}px;}}{{ section.settings.heading_font | font_face }}</style>
+{{section.settings.html_area}}{% unless section.settings.html_area contains "feed-" %}<div id="insta-feed"></div>{% endunless  %}
+{%schema%}{"name":"Instafeed App","settings":[{"type":"font_picker","label":"Heading font.","id":"heading_font","default": "helvetica_n4"},{"type":"range","id":"heading_size_desk","min":8,"max":60,"step":1,"unit":"px","label":"Heading Size Desktop","default":32},{"type":"range","id":"heading_size_mob","min":8,"max":60,"step":1,"unit":"px","label":"Heading Size Mobile","default":16},{"type":"range","id":"margin_top_desk","min":0,"max":100,"step":2,"unit":"px","label":"Section margin top desktop","default":0},{"type":"range","id":"margin_bottom_desk","min":0,"max":100,"step":2,"unit":"px","label":"Section margin bottom desktop","default":0},{"type":"range","id":"margin_top_mob","min":0,"max":100,"step":2,"unit":"px","label":"Section margin top mobile","default":0},{"type":"range","id":"margin_bottom_mob","min":0,"max":100,"step":2,"unit":"px","label":"Section margin bottom mobile","default":0},{"type":"range","id":"feed_width","min":50,"max":100,"step":5,"unit":"%","label":"Feed Width","default":100},{"type":"textarea","id":"html_area","label":"Custom Code (optional)"}],"presets":[{"name":"Instafeed App","category":"Instagram Feed"}]}{%endschema%}

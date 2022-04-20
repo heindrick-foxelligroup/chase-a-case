@@ -1,0 +1,441 @@
+{% comment %}
+******************************************
+	Info:
+		New entry-items which are used on homepage.
+		Customizable through theme customizer (homepage currently)
+
+		Requires: slick.js
+
+    Author: Zilvinas Vaisnoras
+	Origin: Edvinas
+    Date created: 2022-01-10
+    Included in: templates/index.json
+******************************************
+
+******************************************
+
+Last changes: 2022-02-14 Grazina
+
+******************************************
+{% endcomment %}
+
+{%- render 'section-background-start' -%}
+
+<style>
+  
+  #{{section.id}} {
+   	background: none;
+    padding: 0 0 40px 0;
+  }
+  
+  #{{section.id}} .title {
+   	font-family: Saira;
+    font-style: normal;
+    font-weight: 800;
+    font-size: 28px;
+    line-height: 30px;
+
+    /* identical to box height */
+    text-align: center;
+    text-transform: uppercase;
+
+    /* white */
+    color: #FFFFFF;
+    background: #E44E19;
+    margin-top: 0;
+    padding: 7px 15px; 
+  }
+  
+  #{{section.id}} .entry-item {
+   	display: flex;
+    flex-direction: column;
+    justify-content: center;
+	text-align: center;
+    padding: 0 20px;
+    height: 100%;
+  }
+  
+  #{{section.id}} .entry-item .info-section{
+    font-family: Saira;
+    font-size: 20px;
+    line-height: 30px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-top: 15px;
+    
+  }
+  
+  #{{section.id}} .entry-item .quote {
+     padding-right: 15px;
+   	 margin-bottom: 5px;
+     color: #003833;
+  }
+  
+  #{{section.id}} .entry-item .quote p{
+  	display: inline; 
+  }
+  
+  
+  #{{section.id}} .entry-item .block-title {
+    font-family: Saira;
+    font-style: normal;
+    font-weight: 800;
+    font-size: 24px;
+    line-height: 24px;
+
+    /* identical to box height, or 100% */
+    display: flex;
+    align-items: center;
+    text-align: center;
+    text-transform: uppercase;
+
+    /* red */
+    color: #E44E19;
+    margin: 20px auto 10px auto;
+  }
+  
+  #{{section.id}} .entry-item .block-image{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  
+  #{{section.id}} .block-image img{
+	object-fit: contain;
+  }
+  
+  #{{section.id}} .slide{
+    margin-left: 10px;
+    margin-right: 10px;
+  }
+  
+  #{{section.id}} .items-slider .slick-list{
+   /*	padding: 40px 20px !important; */
+  }
+  
+  #{{section.id}} .slick-track{
+    display: flex;
+    align-items: start;
+  }
+  
+  #{{section.id}} .slick-dots{
+   	bottom: -35px !important; 
+  }
+  
+  #{{section.id}} ul.slick-dots li.slick-active button:before{
+     background-color: #E44E19 !important;
+     top: 5px;
+     left: 5px;
+     width: 12px;
+     height: 12px;
+   	 
+  }
+    
+  #{{section.id}} ul.slick-dots li button:before {
+   	 background: none !important;
+     border: 2px solid #E44E19 !important;
+     top: 5px;
+     left: 5px;
+     width: 12px;
+     height: 12px;
+  }
+  
+   @media only screen and (min-width: 991px) {
+     #{{section.id}} .slick-dots {
+       display: none;
+     }
+     
+     #{{section.id}} .section__title__text {
+       font-family: Poppins;
+       font-style: normal;
+       font-weight: 800;
+       font-size: 28px;
+       line-height: 30px;
+       text-align: center;
+       color: #5C2F8D;
+       padding: 30px 0 20px 0;
+     }
+     
+     #{{section.id}} .entry-item .info-section {
+       font-family: Saira;
+       font-style: normal;
+       font-weight: 500;
+       font-size: 24px;
+       line-height: 30px;
+       display: flex;
+       align-items: center;
+       color: #30454C; 
+     }
+     
+     #{{section.id}} .entry-item .block-title {
+      font-size: 40px;
+      line-height: 46px;
+      padding: 20px 28px !important;
+      min-height: 90px;
+     }
+     #{{section.id}} .slick-track {
+      max-width: 1200px !important;
+    }
+     
+   #{{section.id}} .title {
+      width: 100%;
+      margin: 50px auto 30px auto;
+      justify-content: center;
+      background: #E44E19;
+    }
+    #{{section.id}} .title span {
+      font-family: Saira;
+      font-style: normal;
+      font-weight: 800;
+      font-size: 50px;
+      line-height: 46px;
+
+      /* identical to box height, or 92% */
+      text-align: center;
+      text-transform: uppercase;
+
+      /* black */
+      color: #000000;
+      background: #ffffff;
+      padding: 0 30px;
+    }
+     
+     
+   }
+</style>
+
+<div id="{{section.id}}" class="product-features-custom">
+  <div class="title text-center fox-uppercase"><span>Not your ordinary game</span></div>
+	<div class="items-slider">
+      {% for block in section.blocks %}
+        <div class="slide">
+          <div class="entry-item">
+
+            <div class="block-title">{{ block.settings.title }}</div>
+
+            <div class="block-image">
+              <img class="lazyload" data-src="{{ block.settings.image | img_url: "400x400" }}" width="400" height="auto" />
+            </div>
+
+            <div class="info-section">
+              <div class="quote">{{ block.settings.quote | strip }}</div>
+            </div>          
+
+          </div>
+        </div>
+      {% endfor %}
+  </div>
+  
+</div>
+
+<script>
+  window.addEventListener("DOMContentLoaded", function(){
+    $('.items-slider').slick({
+      centerMode: true,
+      centerPadding: '60px',
+      slidesToShow: 3,
+      dots: true,
+      arrows: false,
+      responsive: [
+        {
+          breakpoint: 768,
+          settings: {
+            arrows: false,
+            centerMode: true,
+            centerPadding: '20px',
+            slidesToShow: 1
+          }
+        },
+        {
+          breakpoint: 480,
+          settings: {
+            arrows: false,
+            centerMode: true,
+            centerPadding: '10px',
+            slidesToShow: 1
+          }
+        }
+      ]
+    });
+  });
+
+</script>
+
+{%- render 'section-background-end' -%}
+{% schema %}
+  {
+    "name": "Product - features custom",
+    "class": "product-features-custom",
+    "max_blocks": 9,
+    "settings": [
+      {
+        "type": "paragraph",
+        "content": "Custom for mod"
+      },
+      {
+        "type": "header",
+        "content": "Background"
+      },
+      {
+        "type": "checkbox",
+        "id": "bkg_enable",
+        "label": "Enable",
+        "default": false
+      },
+      {
+        "type": "color",
+        "id": "section_bkg",
+        "label": "Pick a color"
+      },
+      {
+        "type": "image_picker",
+        "id": "section_bkg_image",
+        "label": "Background image"
+      },
+      {
+        "type": "radio",
+        "id": "section_bkg_gutter",
+        "label": "Background size",
+        "options": [
+          {
+            "value": "small",
+            "label": "Small"
+          },
+          {
+            "value": "medium",
+            "label": "medium"
+          },
+          {
+            "value": "high",
+            "label": "High"
+          }
+        ],
+        "default": "high"
+      },
+      {
+        "type": "radio",
+        "id": "section_bkg_style",
+        "label": "Background image style",
+        "options": [
+          {
+            "value": "cover",
+            "label": "Cover"
+          },
+          {
+            "value": "contain",
+            "label": "Contain"
+          }
+        ],
+        "default": "cover"
+      },
+      {
+        "type": "header",
+        "content": "Section Gutters"
+      },
+      {
+        "type": "checkbox",
+        "id": "top_gutter",
+        "label": "Enable top gutter",
+        "default": true
+      },
+      {
+        "type": "checkbox",
+        "id": "bottom_gutter",
+        "label": "Enable bottom gutter",
+        "default": true
+      },
+      {
+        "type": "header",
+        "content": "General Settings"
+      },
+      {
+        "type": "text",
+        "id": "title",
+        "label": "Heading",
+        "default": "entry-items"
+      },
+      {
+        "type": "text",
+        "id": "sub_title",
+        "label": "Sub heading"
+      },
+      {
+        "type": "select",
+        "id": "heading_pos",
+        "label": "Heading position",
+        "options": [
+          {
+            "value": "left",
+            "label": "Left"
+          },
+          {
+            "value": "right",
+            "label": "Right"
+          },
+          {
+            "value": "above",
+            "label": "Above"
+          }
+        ],
+        "default": "left"
+      },
+      {
+        "type": "checkbox",
+        "id": "full_width",
+        "label": "Wide display"
+      }
+    ],
+    "blocks": [
+      {
+        "type": "quote",
+        "name": "entry-item",
+        "settings": [
+          {
+            "type": "text",
+            "id": "title",
+            "label": "Title",
+            "default": "Author's name"
+          },
+          {
+            "type": "richtext",
+            "id": "quote",
+            "label": "Text",
+            "default": "<p>Add customer reviews and entry-items to showcase your store’s happy customers.</p>"
+          },
+          {
+            "type": "image_picker",
+            "id": "image",
+            "label": "Image"
+          }
+        ]
+      }
+    ],
+    "presets": [
+      {
+        "name": "Product - features custom",
+        "category": "Text",
+        "blocks": [
+          {
+            "type": "quote",
+            "settings": {
+              "title": "Test text"
+            }
+          },
+          {
+            "type": "quote",
+            "settings": {
+              "title": "Test text"
+            }
+          },
+          {
+            "type": "quote",
+            "settings": {
+              "title": "Test text"
+            }
+          }
+        ]
+      }
+    ]
+  }
+{% endschema %}

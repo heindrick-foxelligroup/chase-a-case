@@ -1,0 +1,18 @@
+@font-face {
+  font-family: Chivo;
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+  src: url("https://fonts.shopifycdn.com/chivo/chivo_n4.bf4dc1c0e4649d2f5a28281870307415c2a9c652.woff2?h1=Y2hhc2VhY2FzZS5jb20&hmac=741ed78c0392e737e5e66ff1282c227ff423bc084d9bb00a8dac9d93f554114d") format("woff2"),
+       url("https://fonts.shopifycdn.com/chivo/chivo_n4.c44f905e08fb3fb913ad750486da37926e77c01e.woff?h1=Y2hhc2VhY2FzZS5jb20&hmac=59eb5fcbb93bb5a00124ad832718e6cc3ec39ae1f8e275f484b9fc8863f1e270") format("woff");
+}
+
+@font-face {
+  font-family: Chivo;
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+  src: url("https://fonts.shopifycdn.com/chivo/chivo_n7.d83b4aaa520af8b24ea0f1eb81a6d2d8b1a2ad49.woff2?h1=Y2hhc2VhY2FzZS5jb20&hmac=8c642c717d8226d8fd830d39f4d90d9f4ce260cca5af98658beaa1801a8861b0") format("woff2"),
+       url("https://fonts.shopifycdn.com/chivo/chivo_n7.ca33be8a8668a1a14638e19419769677d3ae8d49.woff?h1=Y2hhc2VhY2FzZS5jb20&hmac=c52eec1b4795c5a573b93d097ff0b40f16ebf36b699f96061ab1b425f8694ae1") format("woff");
+}
+

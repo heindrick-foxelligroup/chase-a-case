@@ -1,0 +1,123 @@
+{% comment %}
+******************************************
+
+Last changes: 2022-02-11 Grazina
+
+******************************************
+{% endcomment %}
+
+<style>
+
+
+  #{{ section.id }} {
+    text-align: center;
+    background: #0F101D;
+    padding: 40px;
+    /*margin: 40px 0 0 0;*/
+  }
+  
+  #{{ section.id }} .main-headline {
+    font-family: Syne Mono;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 26px;
+    line-height: 31px;
+    color: #1FFFEE;
+    text-transform: uppercase;
+  }
+  
+  #{{ section.id }} .divider {
+    padding: 12px 0;
+  }
+  
+  #{{ section.id }} .divider img {
+    width: 100%;
+	max-width: 360px;
+    border-radius: 50%;
+  }
+  
+  #{{ section.id }} .content {
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+  }
+  
+  #{{ section.id }} .content-text {
+    font-family: Saira;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 18px;
+    line-height: 24px;
+    text-align: center;
+    max-width: 740px;
+    margin: 0 auto;
+    color: #E6E7E8;
+  }
+  
+  @media only screen and (min-width: 978px) {
+    #{{ section.id }} .main-headline {
+      font-family: Syne Mono;
+      font-style: normal;
+      font-weight: normal;
+      font-size: 40px;
+      line-height: 150%;
+      text-transform: uppercase;
+      margin: 0 0 20px 0;
+    }
+    
+    #{{ section.id }} .content {
+      flex-direction: row;
+      -ms-flex-wrap: nowrap;
+      flex-wrap: nowrap;
+      align-items: center;
+      max-width: 940px;
+	  margin: auto;
+    }
+    
+    #{{ section.id }} .content-text {
+      font-family: Saira;
+      font-style: normal;
+      font-weight: 500;
+      font-size: 30px;
+      line-height: 46px;
+
+      /* or 153% */
+      display: flex;
+      align-items: center;
+      letter-spacing: 0.03em;
+
+      /* white */
+      color: #FFFFFF;
+      text-align: left;
+      margin: 0 0 0 50px;
+      max-width: 561px;
+  }
+  
+</style>
+
+<div id="{{ section.id }}" class="where-have-you-been">
+  <div class="main-headline">
+    <div>Where have you been, detective?</div>
+  </div>
+  <div class="content flex">
+    <div class="divider">
+      <img src="https://cdn.shopify.com/s/files/1/0608/8576/2289/files/where-have-you-been.png" alt="Where have you been, detective?" loading="lazy" />
+    </div>
+    <div class="content-text">
+      We've been waiting for someone brave to come along. We need your help with cold cases, classified secrets, and suspenseful mysteries. Are you ready to step up as Detective, the fearless truth-seeker? 
+    </div>
+  </div>
+</div>
+
+{% schema %}
+  {
+    "name": "Product - Where You been",
+    "settings": [],
+    "presets": [
+      {
+        "name": "Product - Where You been",
+        "category": "Text"
+      }
+    ]
+  }
+{% endschema %}

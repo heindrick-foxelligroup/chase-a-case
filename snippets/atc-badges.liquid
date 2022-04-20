@@ -1,0 +1,27 @@
+{% comment %} 
+    Edvinas Kilbauskas modified by Skaidrius Prascienis
+    File is included in "snippets/product-single-form-inner.liquid"
+{% endcomment %}
+
+{% liquid
+	case product.vendor
+      when "INDYPREP"
+		assign badge_src_desktop = 'https://cdn.shopify.com/s/files/1/0608/8576/2289/files/W50_CAC_WEB_ICON_PRODUCT_PAGE_DESK_DOMAS.svg?v=1639493987' 
+        assign badge_src_mobile = 'https://cdn.shopify.com/s/files/1/0608/8576/2289/files/W50_CAC_WEB_ICON_PRODUCT_PAGE_MOB_DOMAS.svg?v=1639493998'
+      else
+        assign badge_src = 'MS_atc_badge_svg.svg' | asset_url
+    endcase
+    
+    if product.type == "subscription box"
+      assign badge_src_desktop = 'https://cdn.shopify.com/s/files/1/0608/8576/2289/files/W50_CAC_WEB_ICON_PRODUCT_PAGE_DESK_DOMAS.svg?v=1639493987' 
+      assign badge_src_mobile = 'https://cdn.shopify.com/s/files/1/0608/8576/2289/files/W50_CAC_WEB_ICON_PRODUCT_PAGE_MOB_DOMAS.svg?v=1639493998'
+    endif
+%}
+
+<div class="atc-badges-img-wrapper">
+  <picture>
+    <source media="(max-width: 799px)" srcset="{{ badge_src_mobile }}">
+    <source media="(min-width: 800px)" srcset="{{ badge_src_desktop }}">
+    <img src="{{ badge_src_desktop }}" alt="Badges">
+  </picture>
+</div>

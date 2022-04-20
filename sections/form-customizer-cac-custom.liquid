@@ -1,0 +1,591 @@
+{% comment %}
+******************************************
+	Info:
+		Custom form customizer for ramen subscription product. 
+		Rewamps whole top section of the product page.
+		
+		* Adds payment badges
+		* Changes ATC badges
+		* Adds review stars
+		* Changes ATC button design
+		* Hides quantity selector
+		* Adds mobile heading
+		* Removes images gallery on desktop
+		
+
+	Author: Zilvinas Vaisnoras
+    Origin author: Edvinas Kilbauskas
+    Date created: 2022-02-07
+    Included in: templates/product.subscription-product-cac.json
+******************************************
+
+******************************************
+
+Last changes: 2022-03-31 Zilvinas
+
+******************************************
+{% endcomment %}
+
+<style>
+  
+  /* for desktop and mobile */
+  .w100proc {
+  	width: 100%;
+  }
+  
+  /* for desktop */
+  @media only screen and (min-width: 991px){
+    .product-single__photos,
+    .atc-badges-img-wrapper,
+    .rc-container-wrapper,
+    .qty-box,
+    .lh1.gutter-ele-top.gutter-ele-bottom.margin0,
+    .top-image-mobile,
+    .product-price-wrap {
+      display: none; 
+    }
+    
+    /*#ProductSection-template--15295330025633__main {
+      background: url('{{ 'desktop-800x800.gif' | asset_url}}') top left no-repeat;
+      max-width: 100%;
+      padding: 0;
+    }*/
+    
+    .product-single__title__slogan {
+      font-family: Saira;
+      font-style: normal;
+      font-weight: bold;
+      font-size: 32px;
+      line-height: 36px;
+      padding: 20px 0;
+
+      /* identical to box height, or 75% */
+      text-align: center;
+      text-transform: uppercase;
+
+      /* black */
+      color: #000000;
+    }
+    
+    .product-single__title__shoutbox {
+      font-family: Saira;
+      font-style: normal;
+      font-weight: bold;
+      font-size: 26px;
+      line-height: 28px;
+      border-top: 2px solid #E44E19;
+      padding-top: 13px;
+
+      /* or 108% */
+      display: flex;
+      align-items: center;
+      text-align: center;
+      letter-spacing: 0.03em;
+
+      /* red */
+      color: #E84C35;
+      margin: 20px auto;
+    }
+    
+    .lnr-shopping-cart {
+     	margin-right: 10px; 
+    }
+    
+    .add-cart-btn {
+	  font-family: Saira!important;
+      font-style: normal;
+      font-weight: bold;
+      font-size: 32px;
+      line-height: 50px;
+      text-align: center;
+
+      /* dark blue */
+      color: #0F101D;
+      margin: auto;
+      
+      background: #1FEC09;
+	  border-radius: 20px;
+      border: none;
+      
+      width: 100%;
+    }
+    
+    .add-cart-btn:hover,
+    .add-cart-btn:active,
+    .add-cart-btn:visited {
+      cursor: pointer;
+    }
+    
+    .form-background-desktop{ 
+      position: absolute;
+      top: 128px;
+      left: 0;
+      z-index: -1;
+      max-width: 55%;
+    }
+    
+    .blur-edges:before{
+      position: absolute;
+      width: 1200px;
+      height: 650px;
+      content: '';
+      box-shadow: inset -1px 35px 35px 25px white;
+      z-index: -1;
+    }
+    
+    .journey-starts-here-desktop{
+	  width: 100%;
+    }
+    
+    .product-price{
+     	display: none; 
+    }
+    
+    .product-single__title{
+      /*margin-top: 10px !important;
+      font-style: normal;
+      font-weight: 800!important;
+      font-size: 28px;
+      line-height: 24px;
+      text-align: center;
+      text-transform: uppercase;
+      color: #FFFFFF;*/
+      
+      display: none;
+    }
+    
+    .col-xs-12.col-md-6.gutter-ele-top-tbs{
+      width: 40%;
+      /*padding-right: 10%;*/
+      float: right;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      background: white;
+    }
+    
+    .product-form__item {
+      padding-bottom: 35px;
+    }
+    
+    .product-single{
+      	max-width: 1200px;
+      	width: 100%;
+        margin-left: auto;
+        margin-right: auto;
+    }
+      
+      .product-template-section{
+        max-width: 1200px;
+        margin-left: auto;
+        margin-right: auto;
+        padding-left: 0 !important;
+        padding-right: 0 !important;
+      }
+    
+    .product-badges-desktop {
+      padding: 20px 0;
+    }
+	
+    .payment-badges .cart__payment-badges img{
+   	 min-width: 0;
+     min-height: auto;
+     border-radius: 4px;
+  }
+  
+  .payment-badges  .cart__payment-badges {
+      gap: 5px; 
+    }
+  
+   .payment-badges .cart__payment-badges-divider {
+    display: flex;
+    justify-content: space-between;
+  }
+  
+   .payment-badges{
+     width: 100%;
+   	flex-direction: column;
+  }
+
+   .payment-badges .cart__payment-badges {
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      padding: 13px;
+     
+    }
+
+   .payment-badges .cart__payment-badges img {
+      box-shadow: 0px 0px 13px 0px #00000033;
+    }
+
+    .payment-badges .cart__payment-badges-divider .line {
+      border-bottom: 0.5px solid #454466;
+      flex: 1;
+      margin-bottom: 4px;
+    }
+
+    .payment-badges .cart__payment-badges-divider .text {
+      font-family: Saira;
+      font-style: normal;
+      font-weight: 500;
+      font-size: 12px;
+      line-height: 12px;
+      flex-basis: auto;
+      color: #454466;
+      margin: 0 8px;
+    }
+
+   .payment-badges .cart__payment-badges {
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      padding: 13px;
+    }
+    
+    /*   loox rating style   */
+    #shopify-section-template--15664200843505__main .pg__review-stars {
+      text-align: center;
+      margin-top: 14px;
+    }
+    
+    #shopify-section-template--15664200843505__main .pg__review-stars .loox-rating > span {
+      display: none;
+    }
+    
+    #shopify-section-template--15664200843505__main .pg__review-stars .loox-rating .loox-icon {
+      color: #EFBD3F;
+      font-size: 26px;
+    }
+  
+    #shopify-section-template--15664200843505__main .pg__review-stars .loox-rating .loox-icon:not(last-child) {
+      padding-right: 7px;
+    }
+    /*  END OF loox rating style   */
+    
+    .badges {
+       display: flex;
+       flex-direction: row;
+       justify-content: space-between;
+       margin: 0 auto;
+       width: 90%;
+     }
+
+      .badges img{
+        max-width: 30%;
+        height: auto;
+        object-fit: contain;
+      }
+    
+    .product-single__price {
+      font-family: Saira;
+      font-style: normal;
+      font-weight: 600;
+      font-size: 30px;
+      line-height: 47px;
+      text-align: center;
+
+      color: #000000;
+      margin: auto;
+    }
+    
+  }
+  
+  /* for mobile */
+  @media only screen and (max-width: 990px){
+
+    .journey-starts-here-desktop,
+    .form-background-desktop,
+	.main-product-reviews-section,
+    .main-product-tabs-section,
+    .qty-box,
+    .atc-badges-img-wrapper,
+    .rc-container-wrapper,
+    .product-price,
+    .lnr-zoom,
+    .pg__thumbs,
+    .breadcrumbs,
+    .lh1.gutter-ele-top.gutter-ele-bottom.margin0,
+    .product-single__photos
+    {
+      display: none !important; 
+    }
+    
+    .top-image-mobile {
+      width: 100%;
+    }
+    
+    .modern-seperator-mobile {
+      width: 100%;
+      top: -10px;
+      z-index: 1;
+    }
+    
+    .col-xs-12.col-md-6.gutter-ele-top-tbs {
+      background: #0F101D;
+      padding: 20px 15px 15px;
+      width: 80%;
+      margin: auto;
+      float: none;
+      border-radius: 20px;
+      text-align: center;
+      margin-top: -70px;
+    }
+    
+    .product-form__item {
+      width: 100%;
+	  margin: auto;
+      margin-bottom: -100px;
+	  margin-top: -2px;
+      
+      padding-bottom: 55px;
+    }
+    
+    .product-single__title{
+      /*font-style: normal;
+      font-weight: bold !important;
+      font-size: 18px;
+      line-height: 24px;
+      text-align: center;
+      text-transform: uppercase;
+      border-top: 1px solid #FFFFFF;
+      margin-top: 10px !important;
+      color: #FFFFFF;*/
+      
+      display: none;
+
+    }
+    
+    .product-single__title__slogan {
+      font-family: Saira;
+      font-style: normal;
+      font-weight: bold;
+      font-size: 22px;
+      line-height: 24px;
+      text-align: center;
+      text-transform: uppercase;
+      color: #1FEC09;
+      text-align: center;
+      margin-top: -70px;
+      margin: 0 auto;
+    }
+    
+    .product-single__title__shoutbox {
+      font-family: Saira;
+      font-style: normal;
+      font-weight: bold;
+      font-size: 20px;
+      line-height: 30px;
+      text-align: center;
+      color: #FFFFFF;
+      text-align: center;
+      margin-top: -70px;
+      margin: 0 auto;
+    }
+    
+    .add-cart-btn {
+      /*background-color: #FF4367;*/
+      width: calc(100% - 32px);
+      /*border: 3px solid #FFFFFF;
+	  border-radius: 10px;*/
+      font-family: Saira!important;
+      font-style: normal;
+      font-weight: bold;
+      font-size: 24px;
+      line-height: 32px;
+      padding: 20px 10px;
+      margin: auto;
+      text-transform: none;
+	  
+      background: #1FEC09;
+      color: #0F101D;
+      border: none;
+      border-radius: 20px;
+    }
+    
+    .add-cart-btn:hover,
+    .add-cart-btn:active,
+    .add-cart-btn:visited {
+      cursor: pointer;
+    }
+    
+    /*.atc_icon_cart {
+    	padding: 0 10px 4px 0;
+    }*/
+    .add-cart-btn i {
+      margin-right: 10px;
+    }
+    
+    .product-single__price {
+      font-family: Saira;
+      font-style: normal;
+      font-weight: bold;
+      font-size: 20px;
+      line-height: 31px;
+
+      /* identical to box height */
+      text-align: center;
+      letter-spacing: 0.05em;
+
+      /* grey */
+      color: #E6E7E8;
+      margin: auto auto 7px;
+      border-bottom: 1px solid #fff;
+    }
+    
+    .mobile-badges {
+      margin-right: auto;
+      margin-left: auto;
+    }
+    
+    /*   loox rating style   */
+    #shopify-section-template--15664200843505__main .pg__review-stars {
+      text-align: center;
+      margin-top: 6px;
+    }
+
+    #shopify-section-template--15664200843505__main .pg__review-stars .loox-rating > span {
+      display: none;
+    }
+
+    #shopify-section-template--15664200843505__main .pg__review-stars .loox-rating .loox-icon {
+      color: #FCD341;
+      font-size: 18px;
+    }
+
+    #shopify-section-template--15664200843505__main .pg__review-stars .loox-rating .loox-icon:not(last-child) {
+      padding-right: 1px;
+    }
+    /*  END OF loox rating style   */
+    
+    .badges {
+       display: flex;
+       flex-direction: row;
+       justify-content: space-between;
+       margin: 55px auto 0px auto;
+       padding: 20px 0 0 0;
+       width: 90%;
+   }
+
+    .badges img {
+      max-width: 30%;
+      height: auto;
+      object-fit: contain;
+    }
+    
+  }
+  
+/*   @media only screen and (max-width: 576px) {
+    .product-single form.product-form {
+      position: absolute;
+      left: 0;
+      width: 100%;
+    }
+  } */
+  
+/*   @media only screen and (max-width: 440px) {
+    .add-cart-btn {
+      font-size: 16px;
+      line-height: 22px;
+    }
+  }
+  
+  @media only screen and (max-width: 390px) {
+    .add-cart-btn {
+      font-size: 14px;
+      line-height: 20px;
+    }
+  } */
+  
+</style>
+
+{% capture price_in_top_form %}
+	<div class="product-single__price">
+      {{ product.price | money }}/month
+	</div>
+{% endcapture %}
+
+{% capture product_slug %}
+	<div class="product-single__title__slogan">
+      Case-solving game subscription box
+	</div>
+{% endcapture %}
+
+{% capture product_shoutbox %}
+	<div class="product-single__title__shoutbox fox-hide--medium-up">
+      Discover a thrilling <br>monthly adventure
+	</div>
+	<div class="product-single__title__shoutbox fox-hide--small">
+      Discover a thrilling monthly adventure
+	</div>
+{% endcapture %}
+
+{% capture payment_badges_html %}
+<div class="payment-badges">
+  <div class="w100 cart__payment-badges-divider">
+    <div class="line"></div>
+    <div class="text">GUARANTEED SAFE CHECKOUT</div>
+    <div class="line"></div>
+  </div>
+  <div class="cart__payment-badges ">
+    <img src="https://cdn.shopify.com/s/files/1/0598/9649/6312/files/payment1.svg?v=1641455201" alt="Visa" loading="lazy">
+    <img src="https://cdn.shopify.com/s/files/1/0598/9649/6312/files/payment2.svg?v=1641455201" alt="Mastercard" loading="lazy">
+    <img src="https://cdn.shopify.com/s/files/1/0598/9649/6312/files/payment3.svg?v=1641455201" alt="Paypal" loading="lazy">
+    <img src="https://cdn.shopify.com/s/files/1/0598/9649/6312/files/payment4.svg?v=1641455201" alt="Amex" loading="lazy">
+    <img src="https://cdn.shopify.com/s/files/1/0598/9649/6312/files/payment5.svg?v=1641455201" alt="Apple Pay" loading="lazy">
+    <img src="https://cdn.shopify.com/s/files/1/0598/9649/6312/files/payment6.svg?v=1641455201" alt="Discover" loading="lazy">
+  </div>
+</div>
+{% endcapture %}
+
+{% capture badges_html %}
+	<div class="badges">
+      <img src="https://cdn.shopify.com/s/files/1/0608/8576/2289/files/top-icon-1.png" loading="lazy">
+      <img src="https://cdn.shopify.com/s/files/1/0608/8576/2289/files/top-icon-2.png" loading="lazy">
+      <img src="https://cdn.shopify.com/s/files/1/0608/8576/2289/files/top-icon-3.png" loading="lazy">  
+	</div>
+{% endcapture %}
+
+{%- capture cart_icon_atc_img -%}
+	<img src="{%-render 'cart_icon_mod_svg' -%}" loading="lazy" />
+{%- endcapture -%}
+
+<input type="checkbox" name="hidden-buy-button-trigger" id="hidden-buy-button-trigger" style="display: none;">
+
+<script>
+  	
+  	// mobile
+    $("#shopify-section-template--15664200843505__main").before("<img class='top-image-mobile' src='https://cdn.shopify.com/s/files/1/0608/8576/2289/files/main-product-foto-mob.jpg' alt='Chase a case'>");
+    $(".product-single__title").before(`{{ product_slug }}`);
+    $(".pg__review-stars").after(`{{ price_in_top_form }}`);	
+    //$(".product-form__item button.add-cart-btn").before(`icon<span class="atc_icon_cart"><img src="{{ cart_icon_atc_uri }}" loading="lazy"></span>`);
+    $(".col-xs-12.col-md-6.gutter-ele-top-tbs").after(`<div class="fox-hide--medium-up mobile-badges">{{ badges_html }}</div>`);
+    $(".add-cart-btn").text(function(index, text){return text.replace('Add to cart', "SUBSCRIBE NOW");});
+    $(".product-form__item").before(`{{ product_shoutbox }}`);
+    
+    // desktop
+    //$(".product-single .col-xs-12.col-md-6.gutter-ele-top-tbs").append($(".product-form__item"));
+  	$(".product-form__item").after(`<div class="fox-hide--small w100proc"> {{ payment_badges_html }}</div>`);
+    $(".product-single").prepend("<div class='blur-edges'><img class='form-background-desktop lazyload' src='https://cdn.shopify.com/s/files/1/0608/8576/2289/files/main-product-foto-desk.jpg' alt='Chase a case'></div>");
+  	$(".product-single .col-xs-12.col-md-6.gutter-ele-top-tbs").append(`<div class="product-badges-desktop fox-hide--small"> {{ badges_html }}</div>`);
+
+</script>
+
+
+{% schema %}
+{
+  "name": "Product - Customizer CAC",
+  "class": "product-customizer-section",
+  "settings": [
+   
+  ],
+  "presets": [
+    {
+      "name": "Product - Customizer CAC",
+      "category": "Collection",
+      "settings": {
+      }
+    }
+  ]
+}
+{% endschema %}

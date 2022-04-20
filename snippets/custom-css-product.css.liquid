@@ -1,0 +1,112 @@
+{%- comment -%}
+  Custom CSS for product pages.
+  Custom selectors starts with "fox-"
+
+  Structure:
+	overwrite theme files
+	overwrite apps files
+	new custom elements
+
+	Last changes: 2022-03-31 Zilvinas
+{%- endcomment -%}
+
+<style>
+
+  /* TEMP! Hide recharge error cause it's fix waiting for recharge code */
+  div.alert-danger {
+	display: none!important;
+  }
+  
+  /***** Overwrite theme styles *****/
+  .product-single .pg__vendor--single,
+  .product-single .product-form .checkbox-one-line,
+  .product-single .product__policies {
+	display: none;
+  }
+
+  button.add-cart-btn {
+	font-family: var(--fm_general);
+  }
+
+  /* Desktop product tabs design changes */
+ 
+  .main-product-tabs-section .nav-tab-content .tab-pane {
+	text-align: center;
+  }
+
+  .pg__tabs #product-template-tabs-product-template {
+      border-bottom: 1px solid #ccc;
+      margin: 0;
+  }
+
+  .pg__tabs .nav-tab-item{
+      padding: 10px 5px; 
+  }
+  .pg__tabs .nav-tab-item .nav__link-single {
+      border: 1px solid #ccc;
+      border-radius: 30px;
+      padding: 10px 20px;
+      color: #6f6f6f;
+      font-weight: 500;
+  }
+
+  .pg__tabs .nav-tab-item--single.active .nav__link-single {
+     border: 2px solid #E44E19;
+  }
+
+  /* Product tabs max width */
+  .main-product-tabs-section .pg__tabs {
+	max-width: 600px !important;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+  }
+
+  /* Product tabs max width */
+  .main-product-tabs-section .pg__tabs {
+	max-width: 600px !important;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+ /* bigger tab content font */
+  @media only screen and (min-width: 1100px) {
+    .rte {
+        font-size: calc(var(--fs_rte_general) + 0.15rem);
+    }
+  }
+  
+  /***** END OF Overwrite theme styles *****/
+
+  /***** Overwrite apps styles *****/
+
+  /* hide Recharge widget */
+  .template-product .rc_popup__hover,
+  .template-product .rc-container-wrapper{ display: none } 
+ 
+
+  /***** END OF Overwrite apps styles *****/
+
+  /***** CSS for new/custom elements *****/
+  /* Product page banner height fix */
+  .atc-badges-img {
+      height: auto; 
+      object-fit: contain;
+      margin-top: 20px;
+      padding: 0;
+      max-width: 100%;
+  }
+
+  .atc-badges-img-wrapper {
+      text-align: center;
+  }
+  
+  @media all and (min-width: 768px) {
+  	.atc-badges-img{
+      padding: 0 60px;
+    }
+  }
+
+
+  /***** END OF CSS for new/custom elements *****/
+</style>

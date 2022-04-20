@@ -1,0 +1,271 @@
+{% comment %}
+******************************************
+	  
+Last changes: 2022-03-31 Zilvinas
+
+******************************************
+{% endcomment %}
+
+<style>
+  /***** Overwrite current theme global styles *****/
+  body,
+  .secondary-font, h1, h2, h3, h4, h5, h6 {
+    font-family: 'Saira', sans-serif;
+  }
+  /***** END OF Overwrite current theme global styles *****/
+
+  /***** custom global classes and ids starts with "fox-"  *****/
+  .fox-flex {
+      display: flex;
+  }
+
+  .fox-block {
+      display: block;
+  }
+
+  .fox-hide--medium-up{
+    display: block;
+  }
+
+  .fox-hide--small{
+    display: block;
+  }
+
+  .fox-uppercase {
+	text-transform: uppercase;
+  }
+
+  @media only screen and (min-width: 767px){
+    .fox-hide--medium-up{
+      display: none !important;
+    }
+  }
+
+  @media only screen and (max-width: 768px){
+    .fox-hide--small{
+      display: none !important;
+    }
+  }
+  /***** END OF custom global classes and ids starts with "fox-"  *****/
+
+  /***** Overwrite current theme views/blocks/elements *****/
+  .promo__close {
+      display: none;
+  }
+
+  .promo__inner {
+      margin: auto;
+  }
+
+  .promo__text{
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    pointer-events: none;
+  }
+
+  .header--desktop .header__top {
+      display: none; 
+  }
+
+  .header__bottom {
+	padding: 0;
+    display: flex;
+    justify-content: space-between;
+  }
+
+  footer.footer {
+	  padding-top: 15px;
+  }
+
+  footer.footer .footer__inner div.footer__content {
+	  justify-content: center;
+  }
+
+  footer.footer .footer__column__title {
+	  padding-bottom: 10px;
+      margin-bottom: 0;
+  }
+
+  /* BEGIN Header 9 styles */
+
+  .header .mobile_search_dropdown,
+  .header a[href*=collect] { /* shop icon with href to collection */
+     display: none;
+  }
+
+  .header .mobile_search_dropdown {
+	background: #fafafa;
+    padding: 15px;
+    float: left;
+    width: 100%;
+  }
+
+  .mobile_search_dropdown .search-header__submit {
+	background: rgba(var(--color_general_rgb),.05);
+    border: 1px solid rgba(var(--color_general_rgb),.05);
+    padding: 8px;
+  }
+
+  .mobile_search_dropdown .search-header__input {
+	padding: 3px 8px;
+  }
+
+  @media all and (min-width: 768px){
+    header.header {
+      border: none;
+    }
+    .header .row.header__wrap {
+      position: relative;
+      display: flex;
+      align-items: center;
+      flex-direction: row;
+      height: 82px;
+      margin: 8px;
+    }
+    .header .row.header__wrap > div:nth-of-type(2) { 
+      position: absolute;
+      padding-left: 0;
+      width: 100%; 
+      left:0; 
+      right: 0;
+    }
+    .header .header__wrap-logo { 
+      position: relative; 
+      z-index:2
+    }
+    .header .header__logo__image {
+      max-width: 200px;
+      width: 200px;
+    }
+    .header .row.header__wrap #shopify-section-navigation {
+      margin-left: 50%;
+      -webkit-transform: translateX(-50%);
+          -ms-transform: translateX(-50%);
+              transform: translateX(-50%);
+    }
+    .header .row.header__wrap > div:nth-of-type(2) .header__right {
+       border: unset;
+    }
+
+    .header .row.header__wrap > div:nth-of-type(2) .header__bottom .header__bottom__right .header__bottom__ele { padding: 0 10px }
+    .header .row.header__wrap > div:nth-of-type(2) .header__bottom .header__bottom__right .header__cart-text { display: none; }
+    .header .row.header__wrap > div:nth-of-type(2) .header__bottom .header__bottom__right .header__cart-link { position: relative }
+    .header .row.header__wrap > div:nth-of-type(2) .header__bottom .header__bottom__right .header__cart-link span.abs-number  { 
+      top: -7px;
+      right: 3px;
+      width: 20px;
+      height: 20px;
+      line-height: 20px;
+      font-size: 13px;
+      position: absolute;
+      border-radius: 50%;
+      vertical-align: middle;
+      text-align: center;
+      color: var(--bkg_body);
+      background-color: var(--color_hover);
+    }
+
+  /* dropdown styling */
+    .header .nav__item__dropdown {
+      width: 80vw;
+      max-width: 1200px;
+      left: -20vw !important;
+    }
+  }
+
+  @media all and (max-width: 767px) {
+    /* placeholder */
+  }
+
+  /* header menu submenu item text can't catch color from settings */
+  .nav__item--parent.hover .nav__item__link,
+  nav.main-nav .nav__item__link:active,
+  nav.main-nav .nav__item__link:focus {
+	color: var(--color_hover);
+  }
+  /* END Header 9 styles */
+
+  .bottom-mobile-toolbar .lnr-home {
+	font-size: 22px;
+    font-weight: var(--font-weight-general--bold);
+  }
+
+  /* open by default mobile nav item with class 'open' */
+  li.mobile-nav__item.open > .mobile-nav__children { display: block!important }
+
+  /* Mobile view. Cart takes double width to center logo in x axis. */
+  .header-mobile__top .header__links {
+     margin: 0 8px;
+  }
+  @media only screen and (max-width: 360px){  
+    .header-mobile__top .header__links {
+	  margin: 0 -14px;
+    }
+  }
+
+  /* Hide login/account icon in header */
+  .header-mobile__top .bt-sidebar-btn.header__link:first-child {
+	display: none;
+  }
+
+  /***** END OF Overwrite current theme views/blocks/elements *****/
+
+  /***** custom new elements to theme *******/
+  .header .header__cart--button-join,
+  #sidebar-mobile-nav .sidebar-mobile-join-button {
+    padding: 10px 20px;
+    border: 1px solid var(--bkg_btn_cart);
+    border-radius: 5px;
+    color: 1px solid var(--bkg_btn_cart);
+    font-size: 14px;
+  }
+
+  .header .header__cart--button-join:hover,
+  #sidebar-mobile-nav .sidebar-mobile-join-button:hover {
+    background: var(--bkg_btn_cart);
+    color: #fff;
+    border-color: #fff;
+    border-radius: 0;
+  }
+
+  #sidebar-mobile-nav .sidebar-mobile-join-wrapper {
+      display: flex;
+      justify-content: center;
+      margin: 8px auto;
+  }
+
+  #sidebar-mobile-nav .sidebar-mobile-join-button {
+	padding: 10px 70px;
+  }
+
+  #sidebar-mobile-nav .block-mobile-nav {
+	padding-bottom: 0 !important;
+  }
+
+  /* tiktok elements */
+  /* header tiktok icon */
+  .header__social-links .tiktok-link svg { 
+    height: 16px; 
+    margin-bottom: -3px;
+  }
+  .tiktok-link { fill: #1c1c1c }
+  .tiktok-link.active, 
+  .tiktok-link:focus, 
+  .tiktok-link:hover { fill: var(--color_hover)!important; }
+
+  /* footer tiktok icon */
+  .footer__social-icons .tiktok-link svg { height: 18px; }
+  .social-icons__link.tiktok-link:hover { fill: var(--color_footer_column_content_hover)!important; }
+  /***** END OF custom new elements to theme *******/
+
+
+	/* Header fix */
+	.header--mobile.use-sticky--mobile{
+     	max-width: 100vw; 
+    }
+  /* Footer fix. To always stick to the bottom */
+  footer#footer {
+	position: absolute;
+    width: 100%;
+  }
+</style>

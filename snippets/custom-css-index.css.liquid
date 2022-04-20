@@ -1,0 +1,241 @@
+{%- comment -%}
+  Custom CSS for all pages.
+  Custom selectors starts with "fox-"
+
+  Structure:
+	overwrite theme files
+	overwrite apps files
+	new custom elements
+
+  Last changes: 2022-04-05 Zilvinas
+{%- endcomment -%}
+
+<style>
+
+  /***** Overwrite theme files *****/
+
+  #product-single-deal-template--15094162423988__1633540738c9762a6c {
+	text-align: center;
+  }
+
+  section.rich-banner-section .section__heading {
+    padding: 0;
+    text-align: center;
+  }
+
+  section.rich-banner-section .section__sub-title {
+    padding-top: 0;
+    padding-bottom: 12px;
+  }
+
+  section.rich-banner-section .banner-item {
+	display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  section.product-single-deal .psd__desc {
+	font-size: 15px;
+  }
+
+  .single-deal-container {
+	text-align: center;
+  }
+
+  .single-deal-container .psd__desc {
+    text-align: left;
+    padding-left: 30px;
+  }
+
+  section.product-single-deal a {
+    font-style: normal;
+    font-weight: bold;
+    font-size: 18px;
+    line-height: 25px;
+    letter-spacing: 0px;
+    border-radius: 15px;
+  }
+
+  #newsletter_template--15396248223985__1633535276b0b1a5dd,
+  #newsletter_template--15396248223985__1633535276b0b1a5dd .section__title__text {
+    color: #fff;
+  }
+
+  #newsletter_template--15396248223985__1633535276b0b1a5dd button {
+  	right: -6px;
+    background-color: #E44E19!important;
+    height: 100%;
+    padding: 15px 40px;
+    border-radius: 6px;
+  }
+
+  #newsletter_template--15396248223985__1633535276b0b1a5dd button i {
+    line-height: 0px;
+  }
+
+  #newsletter_template--15396248223985__1633535276b0b1a5dd button i::before {
+    content: "GET IT";
+    font-family: 'Saira';
+    padding: 11px 30px;
+  }
+
+  #shopify-section-template--15396248223985__16335447057a1d6921 .section__title__text {
+    font-weight: 600;
+    color: #E44E19;
+  }
+
+  #rich_banner_text_template--15396248223985__1569286477905 .banner-item >div {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
+    flex-direction: column;
+  }
+
+  /***** END OF overwrite theme files *****/
+
+  /***** Overwrite apps files *****/
+  /* Instagram home page feed */
+  body.template-index #insta-feed h2 {
+    text-align: left !important;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    padding: 0 15px !important; 
+    font-family: 'Saira', sans-serif;
+  }
+
+  body.template-index #insta-feed h2:before {
+    content: ' '; 
+    height: 35px;
+    width: 35px;
+    margin-right: 10px;
+    background: url('https://cdn.shopify.com/s/files/1/2987/3832/files/home-instagram-logo.svg') left center no-repeat;
+  }
+
+  body.template-index #insta-feed > [href="#1-insta-feed"]:before {
+      height: 35px;
+      width: 95%;
+      color: #000;
+      display: block;
+      float: left;
+      text-align: left;
+      margin-top: -30px;
+      margin-bottom: 3px;
+      margin-left: 1em;
+      font-size: 16px;
+      background: none;
+      line-height: 35px;
+  }
+
+  .rich-banner-section .section__heading:not(.section__heading--with-sub) .section__title__text,
+  .banner-ele-c0a78fd3-d59f-4412-9046-a7a21e2ebf09-text_1 {
+    position: relative;
+    font-weight: 800!important;
+    font-size: 30px;
+    line-height: 30px;
+    text-align: center;
+    text-transform: uppercase;
+    color: #FFFFFF;
+    justify-content: center;
+    padding: 20px;
+    margin-top: -25px!important
+  }
+
+  .rich-banner-section .section__heading:not(.section__heading--with-sub) .section__title__text::before,
+  .banner-ele-c0a78fd3-d59f-4412-9046-a7a21e2ebf09-text_1::before {
+    content: '';
+    display: block;
+    width: 100vw;
+    height: 100%;
+    background: #E44E19;
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translatex(-50%);
+    z-index: -1;
+  }
+
+  @media only screen and (min-width: 768px){
+    .single-deal-container {
+      text-align: left;
+      padding-left: calc(25px + 3vw);
+    }
+    
+    .single-deal-container .psd__desc {
+      padding-left: 0;
+    }
+    
+    #newsletter_template--15396248223985__1633535276b0b1a5dd button i::before {
+      padding: 15px 40px;
+    }
+  }
+
+  @media only screen and (min-width: 992px) {
+    .rich-banner-section .section__heading:not(.section__heading--with-sub) .section__title__text,
+    .banner-ele-c0a78fd3-d59f-4412-9046-a7a21e2ebf09-text_1 {
+      background: #fff;
+      width: fit-content;
+      margin: 15px auto 30px!important;
+      color: #000;
+      font-size: 50px;
+      line-height: 46px;
+      padding: 0 30px;
+    }
+    
+    .banner-item--7e9b3012-15dc-4b6a-a71f-7217f9ddf0c2 {
+      padding-left: 3vw
+    }
+    
+    .banner-item--7e9b3012-15dc-4b6a-a71f-7217f9ddf0c2 .help-item {
+      margin: 0;
+    }
+    
+    .banner-item--7e9b3012-15dc-4b6a-a71f-7217f9ddf0c2 .text-center {
+      text-align: left;
+    }
+  }
+
+  /* Hope page first section/main photo button sticky to bottom with negative margin  */
+  @media only screen and (max-width: 767px){
+    .hp-top-image-button-mob {
+	  position: absolute;
+      top: -121px;
+      margin-left: -75px;
+    }
+  }
+
+  /* Klaviyo newsletter form fix */
+  div.klaviyo-form.klaviyo-form-TYLuu8 form.klaviyo-form > div {
+    min-height: auto !important;
+  }
+  div.klaviyo-form.klaviyo-form-TYLuu8 [data-testid=form-row] > div:last-child {
+    margin: 0 0 0 -6px !important;
+    padding: 0 !important;
+  }
+  div.klaviyo-form.klaviyo-form-TYLuu8 [data-testid=form-row] > div:last-child button {
+    padding: 0px 36px !important;
+  }
+
+  /***** END OF overwrite apps files *****/
+
+  /***** CSS for custom/new elements *****/
+  .help-item {
+	margin: auto;
+    padding: 0 0 4px 24px;
+    display: table;
+    background: url('data:image/svg+xml;charset=UTF-8,<svg width="20" height="15" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M1.46875 8.04224L7.15625 13.7297L18.5312 1.54224" stroke="rgb(228, 78, 25)" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"></path></svg>') 0 9px no-repeat;
+  }
+
+  .how-it-works-item {
+    padding: 0 0 12px 27px;
+    display: table;
+    background: url("https://cdn.shopify.com/s/files/1/0608/8576/2289/files/how-it-works-bullets-mob.svg?v=1644427911") -3px -2px no-repeat;
+  }
+
+  @media only screen and (min-width: 767px){
+    .help-item {
+        background-position-y: 12px;
+    }
+  }
+  /***** END OF CSS for custom/new elements *****/
+</style>

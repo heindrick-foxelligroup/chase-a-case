@@ -1,0 +1,560 @@
+{% comment %}
+******************************************
+	Info:
+		How it works section fully customizable
+
+	  
+    Author: Zilvinas Vaisnoras
+    Date created: 2022-01-09
+    Included in: templates/product.subscription-product.json
+******************************************
+
+******************************************
+
+Last changes: 2022-03-24 Zilvinas
+
+******************************************
+
+{% endcomment %}
+
+{%- if section.settings.enable_on_mobile == true -%}
+
+<style>
+  
+  #{{section.id}}.mobile {
+/*    background: #FFF3F5; */
+  }
+  
+  #{{section.id}}.mobile,
+  #{{section.id}}.mobile .wrapper {
+    position: relative;
+  }
+  
+  #{{section.id}}.mobile .title {
+    font-family: Saira;
+    font-style: normal;
+    font-weight: 800;
+    font-size: 30px;
+    line-height: 30px;
+    text-align: center;
+    text-transform: uppercase;
+    color: #FFFFFF;
+    justify-content: center;
+	padding: 20px;
+    background: #E44E19;;
+  }
+  #{{section.id}}.mobile .text-wrapper {
+    font-size: 16px;
+    line-height: 20px;
+    color: #30454C;
+    max-width: 100%;
+    padding: 30px 30px 0 30px;
+  }
+  #{{section.id}}.mobile .text-item {
+    width: 100%;
+    flex-direction: column;
+    margin-bottom: 30px;
+  }
+  #{{section.id}}.mobile .text-item.third-item {
+    margin-bottom: 0;
+  }
+  #{{section.id}}.mobile .text-head {
+    font-size: 24px;
+    line-height: 32px;
+    color: #E84C35;
+    font-weight: 900;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+  }
+  
+  #{{section.id}}.mobile .text-head-img-wrapper img {
+	width: 100%;
+    max-width: 360px;
+  }
+  
+  #{{section.id}}.mobile .text-content {
+  	/*padding: 0 1vh;*/
+  }
+  
+  #{{section.id}}.mobile .text-content-text__desc {
+    font-family: Saira;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 22px;
+
+    /* or 122% */
+
+    /* dark blue */
+    color: #0F101D;
+    padding: 20px 0;
+  }
+  
+  #{{section.id}}.mobile .text-content-text__bullets {
+    font-family: Saira;
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 22px;
+    color: #0F101D;
+    font-weight: 500;
+    /*padding: 0 30px 0 0;*/
+  }
+  #{{section.id}}.mobile .text-content-text__bullets ul {
+   list-style: none;
+   padding: 10px;
+    font-family: Saira;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 20px;
+
+    /* or 111% */
+
+    /* dark blue */
+    color: #0F101D;
+  }
+  
+  #{{section.id}}.mobile .text-content-text__bullets ul li {
+    list-style: none; 
+    position: relative;
+    padding: 6px 0;
+    margin: 0 0 0 27px;
+  }
+  
+  #{{section.id}}.mobile .text-content-text__bullets ul li:before {
+    background: url("https://cdn.shopify.com/s/files/1/0608/8576/2289/files/how-it-works-bullet-desk.svg") center center no-repeat;
+    content: "";
+    width: 22px;
+    height: 24px;
+    position: absolute;
+    left: -30px;
+    top: 3px;
+  }
+  
+  @media only screen and (max-width: 579px){
+    #{{section.id}}.mobile .text-head {
+      justify-content: left;
+    }
+   }
+  @media only screen and (max-width: 430px){
+	#{{section.id}}.mobile .flex-container {
+      justify-content: start;
+    }
+    #{{section.id}}.mobile .main-image-wrapper {
+      margin-left: -50px;
+    }
+    #{{section.id}}.mobile .main-image {
+      width: 100%;
+    }
+    #{{section.id}}.mobile .img-arrow {
+      position: absolute;
+      bottom: -10px;
+      right: -180px;
+      height: 130px;
+    }
+/*     #{{section.id}}.mobile .text-content-text__bullets {
+      font-size: 16px;
+    } */
+    #{{section.id}}.mobile .text-content-text__bullets ul {
+      padding: 0;
+    }
+  }
+  	
+</style>
+
+<div id="{{section.id}}" class="mobile section-how-it-works fox-hide--medium-up">
+  <div class="wrapper">
+    <div class="flex title fox-uppercase">
+       	How it works
+    </div>
+    <div class="flex text-wrapper">
+    	<div class="flex text-item first-item">	
+          <div class="flex text-head">
+            <div class="flex text-head-img-wrapper">
+            	<img class="text-head-img lazyload" data-src="https://cdn.shopify.com/s/files/1/0608/8576/2289/files/how-it-works-new-mob-1.png" loading="lazy"/>
+            </div>
+          </div>
+          <div class="flex text-content">
+            <div class="text-content-text__desc">
+              <b>Accept the challenge, and immerse yourself in a new mysterious world.</b>
+            </div>
+            <div class="text-content-text__bullets">
+              <ul>
+                <li>Get a new unique case-solving game each month</li>
+                <li>The first box ships immediately. Hop on your first case in the next 2-6 days</li>
+                <li>Cancel anytime, for any reason</li>
+              </ul>
+            </div>
+          </div>
+      </div>
+      <div class="flex text-item second-item">	
+          <div class="flex text-head">
+            <div class="flex text-head-img-wrapper">
+            	<img class="text-head-img lazyload" data-src="https://cdn.shopify.com/s/files/1/0608/8576/2289/files/how-it-works-new-mob-2.png" loading="lazy"/>
+            </div>
+          </div>
+          <div class="flex text-content">
+            <div class="text-content-text__desc">
+              While we collect all evidence we’ve got, brush up your case-solving skills, or gather your squad for some help. 
+              <br><br>
+              Get ready to:
+            </div>
+            <div class="text-content-text__bullets">
+              <ul>
+                <li><b>Look for clues</b></li>
+                <li><b>Decode messages</b></li>
+                <li><b>Listen to secret recordings</b></li>
+                <li><b>Uncover the truth</b></li>
+              </ul>
+            </div>
+          </div>
+      </div>
+      <div class="flex text-item third-item">	
+          <div class="flex text-head">
+            <div class="flex text-head-img-wrapper">
+            	<img class="text-head-img lazyload" data-src="https://cdn.shopify.com/s/files/1/0608/8576/2289/files/how-it-works-new-mob-3.png" loading="lazy"/>
+            </div>
+          </div>
+          <div class="flex text-content">
+            <div class="text-content-text__desc">
+              <b>Are we all set, Detective? Get your red string out – it’s time to figure out what really happened.</b>
+            </div>
+            <div class="text-content-text__bullets">
+              Immerse yourself in a new gripping experience like never before. This is not your ordinary board game, so get ready for some action!
+            </div>
+          </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+{%- endif -%}
+
+{%- if section.settings.enable_on_desktop == true -%}
+
+<style>
+  
+  #{{section.id}}.desktop {
+   /*background: #FFF3F5;*/
+  }
+  
+  #{{section.id}}.desktop,
+  #{{section.id}}.desktop .wrapper {
+    position: relative;
+  }
+  
+  #{{section.id}}.desktop .title {
+    width: 100%;
+    margin: 50px auto 30px auto;
+    justify-content: center;
+	background: #E44E19;
+  }
+  #{{section.id}}.desktop .title-span {
+    font-family: Saira;
+    font-style: normal;
+    font-weight: 800;
+    font-size: 50px;
+    line-height: 46px;
+
+    /* identical to box height, or 92% */
+    text-align: center;
+    text-transform: uppercase;
+
+    /* black */
+    color: #000000;
+    background: #ffffff;
+	padding: 0 30px;
+  }
+  #{{section.id}}.desktop .main-image-wrapper {
+    align-items: center;
+  }
+  
+  #{{section.id}}.desktop .text-wrapper {
+    font-size: 18px;
+    line-height: 24px;
+    color: #323050;
+    padding: 30px 0 50px 30px;
+    flex-flow: column;
+    max-width: 1300px;
+    margin: auto;
+    align-items: start;
+  }
+  #{{section.id}}.desktop .text-item {
+    width: 100%;
+    width: 100%;
+    padding: 0 30px;
+  }
+  
+  #{{section.id}}.desktop .text-item:not(:first-child) {
+    margin-top: 60px;
+  }
+  
+  #{{section.id}}.desktop .text-item > div {
+    padding: 10px;
+    -ms-flex-line-pack: start;
+    align-content: flex-start;
+  }
+  
+  #{{section.id}}.desktop .text-item.first-item .text-content {
+    padding-top: 25px;
+    padding-right: 24px;
+  }
+  
+  #{{section.id}}.desktop .text-item.second-item .text-content {
+    padding-top: 15px;
+    padding-left: 50px;
+  }
+  
+  #{{section.id}}.desktop .text-item.third-item .text-content {
+    padding-top: 45px;
+    padding-right: 24px;
+  }
+  
+  #{{section.id}}.desktop .text-head {
+    width: 53%;
+  }
+
+  #{{section.id}}.desktop .text-head-title {
+    font-family: Saira;
+    font-style: normal;
+    font-weight: 800;
+    font-size: 40px;
+    line-height: 24px;
+
+    /* identical to box height, or 60% */
+    display: flex;
+    align-items: center;
+    text-transform: uppercase;
+
+    /* red */
+    color: #E44E19;
+    
+    margin: 0 0 32px 0;
+  }
+  
+  #{{section.id}}.desktop .text-head-img-wrapper img {
+	width: 100%;
+    height: auto;
+    position: relative;
+    top: -27px;
+    object-fit: contain;
+  }
+  
+  #{{section.id}}.desktop .text-item.second-item .text-head-img-wrapper img {
+    top: -37px;
+  }
+  
+  #{{section.id}}.desktop .text-item.third-item .text-head-img-wrapper img {
+    top: -32px;
+  }
+  
+  #{{section.id}}.desktop .text-content {
+    width: 47%;
+  }
+  
+  #{{section.id}}.desktop .text-content-text__desc {
+    font-family: Saira;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 24px;
+    line-height: 30px;
+
+    /* or 125% */
+
+    /* dark blue */
+    color: #0F101D;
+  }
+  
+  #{{section.id}}.desktop .text-content-text__desc p {
+    margin-bottom: 32px;
+  }
+  
+  #{{section.id}}.desktop .text-content-text__bullets {
+    font-family: Saira;
+    font-size: 24px;
+    line-height: 24px;
+    color: #323050;
+    font-weight: 500;
+    padding: 0 30px 0 0;
+  }
+  #{{section.id}}.desktop .text-content-text__bullets ul {
+   list-style: none;
+   padding: 10px;
+   font-weight: 500;
+  }
+  
+  #{{section.id}}.desktop .text-content-text__bullets ul li {
+    position: relative;
+    padding: 6px 0;
+    margin: 0 0 0 20px;
+  }
+  
+  #{{section.id}}.desktop .text-item.second-item .text-content-text__bullets ul li {
+  	padding-bottom: 18px;
+  }
+  
+  #{{section.id}}.desktop .text-item.first-item .text-content-text__bullets ul li {
+  	padding-bottom: 28px;
+  }
+  
+  #{{section.id}}.desktop .text-content-text__bullets ul li:before {
+    background: url("https://cdn.shopify.com/s/files/1/0608/8576/2289/files/how-it-works-bullet-desk.svg") center center no-repeat;
+    content: "";
+    width: 22px;
+    height: 24px;
+    position: absolute;
+    left: -30px;
+    top: 3px;
+  }
+  
+  @media only screen and (max-width: 579px){
+    #{{section.id}}.desktop .text-head-title {
+      padding: 0;
+    } 
+    #{{section.id}}.desktop .text-head {
+      justify-content: left;
+    }
+   }
+  @media only screen and (max-width: 400px){
+	#{{section.id}}.desktop .flex-container {
+      justify-content: start;
+    }
+  }
+  	
+</style>
+
+<div id="{{section.id}}" class="desktop section-how-it-works fox-hide--small">
+  <div class="wrapper">
+    <div class="flex title fox-uppercase">
+      <span class="flex title-span">How it works</span>
+    </div>
+    <div class="flex text-wrapper">
+    	<div class="flex text-item first-item">	
+          <div class="flex text-content">
+            <div class="flex text-head-title fox-uppercase">
+              You subscribe
+            </div>
+            <div class="text-content-text__desc">
+              <p><b>Accept the challenge, and immerse yourself in a new mysterious world.</b></p>
+            </div>
+            <div class="text-content-text__bullets">
+              <ul>
+                <li>Get a new unique case-solving game each month</li>
+                <li>The first box ships immediately. Hop on your first case in the next 2-6 days</li>
+                <li>Cancel anytime, for any reason</li>
+              </ul>
+            </div>
+          </div>
+          <div class="flex text-head">
+            <div class="flex text-head-img-wrapper">
+            	<img class="text-head-img lazyload" data-src="https://cdn.shopify.com/s/files/1/0608/8576/2289/files/how-it-works-new-desk-1.png" loading="lazy"/>
+            </div>
+          </div>
+      </div>
+      <div class="flex text-item second-item">	
+          <div class="flex text-head">
+            <div class="flex text-head-img-wrapper">
+            	<img class="text-head-img lazyload" data-src="https://cdn.shopify.com/s/files/1/0608/8576/2289/files/how-it-works-new-desk-2.png" loading="lazy"/>
+            </div>
+          </div>
+          <div class="flex text-content">
+            <div class="flex text-head-title fox-uppercase">
+              We prepare
+            </div>
+            <div class="text-content-text__desc">
+              <p>While we collect all evidence we’ve got, brush up your case-solving skills, or gather your squad for some help.</p>
+            </div>
+            <div class="text-content-text__bullets">
+              <p>Get ready to:</p>
+              <ul>
+                <li><b>Look for clues</b></li>
+                <li><b>Decode messages</b></li>
+                <li><b>Listen to secret recordings</b></li>
+                <li><b>Uncover the truth</b></li>
+              </ul>
+            </div>
+          </div>
+      </div>
+      <div class="flex text-item third-item">	
+          <div class="flex text-content">
+            <div class="flex text-head-title fox-uppercase">
+              You play
+            </div>
+            <div class="text-content-text__desc">
+              <p><b>Are we all set, Detective?</b></p>
+              <p><b>Get your red string out – it’s time to figure out what really happened.</b></p>
+              <p>Immerse yourself in a new gripping experience like never before. This is not your ordinary board game, so get ready for some action!</p>
+            </div>
+          </div>
+          <div class="flex text-head">
+            <div class="flex text-head-img-wrapper">
+            	<img class="text-head-img lazyload" data-src="https://cdn.shopify.com/s/files/1/0608/8576/2289/files/how-it-works-new-desk-3.png" loading="lazy"/>
+            </div>
+          </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+{%- endif -%}
+
+{% schema %}
+{
+  "name": "Product - How it works",
+  "class": "how-it-works",
+  "settings": [
+    {
+      "type": "header",
+      "content": "How it works"
+    },
+	{
+      "type": "checkbox",
+      "id": "enable_on_mobile",
+      "label": "Enable on mobile",
+      "default": true
+    },
+	{
+      "type": "checkbox",
+      "id": "enable_on_desktop",
+      "label": "Enable on desktop",
+      "default": false
+    },
+	{
+      "type": "text",
+      "id": "section_name",
+      "label": "Section name",
+      "default": "How it works"
+    },
+	{
+      "type": "image_picker",
+      "id": "bg_top_mobile",
+      "label": "Background top mobile"
+    },
+	{
+      "type": "image_picker",
+      "id": "bg_top_desktop",
+      "label": "Background top desktop"
+    },
+	{
+      "type": "image_picker",
+      "id": "main_image_mobile",
+      "label": "Main image mobile"
+    },
+	{
+      "type": "image_picker",
+      "id": "main_image_desktop",
+      "label": "Main image desktop"
+    }
+  ],
+  "presets": [
+    {
+      "name": "How it works",
+      "category": "Collection",
+      "settings": {
+      }
+    }
+  ]
+}
+{% endschema %}

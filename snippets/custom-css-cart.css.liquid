@@ -1,0 +1,53 @@
+{% comment %}
+******************************************
+	  
+Last changes: 2022-02-25 Grazina
+
+******************************************
+{% endcomment %}
+
+{%- comment -%} 
+  Custom CSS for BLOG pages.
+  Custom selectors starts with "fox-"
+
+  Structure:
+	overwrite theme files
+	overwrite apps files
+	new custom elements
+{%- endcomment -%}
+
+<style>
+  
+  /***** Overwrite theme styles *****/
+
+  .bottom-mobile-toolbar { display:none; }
+  .list-view-item__title { font-weight: bold }
+
+  .additional-checkout-buttons { display: none!important; } 
+
+  .cart-page__content .cart__checkout {
+    font-weight: 900;
+    letter-spacing: 0.5px;
+    font-size: 1rem;
+    border: 1px solid #E44E19;
+    background-color: #E44E19;
+    color: #ffffff;
+  }
+
+  .cart-page__content .cart__checkout:hover {
+    border: 1px solid #FCD341;
+    background-color: #FCD341;
+  }
+
+  .cart__continue {
+    text-align: center;
+  }
+  
+  /***** END OF Overwrite theme styles *****/
+
+  /***** Overwrite apps styles *****/
+  /***** END OF Overwrite apps styles *****/
+
+  /***** CSS for new/custom elements *****/
+
+</style>

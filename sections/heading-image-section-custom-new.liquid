@@ -1,0 +1,210 @@
+{% comment %}
+******************************************
+	Info:
+		Custom image with heading section. Mobile only. Hidden on desktop.
+
+	Author: Zilvinas Vaisnoras
+    Original author: Edvinas Kilbauskas
+    Date created: 2021-12-20
+    Included in: templates/product.subscription-product.json
+
+	Last changed: 2022-03-31 Zilvinas
+******************************************
+{% endcomment %}
+
+{%- if section.settings.enable_on_mobile == true -%}
+  <style>
+    #{{section.id}}.mobile {
+      {%- if section.settings.sect_bg_color_mob != '#999999' -%}
+        background-color: {{ section.settings.sect_bg_color_mob }};
+      {% endif %}
+      margin: 0 0 15px 0;
+    }
+    #{{section.id}}.mobile .content {
+      padding: 20px 0 0 0;
+    }
+    
+    {% if section.settings.red_bg_title_mob == true %}
+      #{{section.id}}.mobile .title {
+        font-family: Saira;
+        font-style: normal;
+        font-weight: 800;
+        font-size: 30px;
+        line-height: 30px;
+        text-align: center;
+        text-transform: uppercase;
+        color: #FFFFFF;
+        justify-content: center;
+        padding: 20px;
+        background: #E44E19;
+      }
+    {% else %}
+      #{{section.id}}.mobile .title {
+        font-family: Saira;
+        font-size: 30px;
+        font-style: normal;
+        font-weight: 800;
+        line-height: 30px;
+        letter-spacing: 0em;
+        text-align: center;
+        color: #E44E19;
+        padding: 30px 0 0 0;
+      }
+    {% endif %}
+
+    #{{section.id}}.mobile .wrapper {
+      padding: 0 30px 0 30px;
+    }
+
+    #{{section.id}}.mobile .image {
+      width: 100%;
+    }
+
+  </style>
+
+  <div id="{{section.id}}" class="mobile section-heading-image-section-custom-new fox-hide--medium-up">
+    <div class="wrapper_old">
+      <h2 class="title"><span>{{ section.settings.section_name }}</span></h2>
+      <div class="content">
+        <img class="image lazyload" data-src="{{ section.settings.main_image_mobile | img_url: 'original' }}" loading="lazy"/>
+      </div>
+    </div>
+  </div>
+
+{%- endif -%}
+
+{%- if section.settings.enable_on_desktop == true -%}
+  <style>
+	#{{section.id}}.desktop {
+      {%- if section.settings.sect_bg_color_desk != '#999999' -%}
+        background-color: {{ section.settings.sect_bg_color_desk }};
+      {% endif %}
+    }
+    
+    #{{section.id}}.desktop .wrapper {
+      /*margin: 70px 0 0 0;*/
+    }
+
+    #{{section.id}}.desktop .content {
+      padding: 20px 0 30px 0;
+      flex-flow: row;
+      justify-content: space-around;
+      align-items: start;
+    }
+
+    {% if section.settings.red_bg_title_desk == true %}
+      #{{section.id}}.desktop .title {
+        width: 100%;
+        margin: 50px auto 30px auto;
+        justify-content: center;
+        background: #E44E19;
+      }
+      #{{section.id}}.desktop .title span {
+        font-family: Saira;
+        font-style: normal;
+        font-weight: 800;
+        font-size: 50px;
+        line-height: 46px;
+        text-align: center;
+        text-transform: uppercase;
+        color: #000000;
+        background: #ffffff;
+        padding: 0 30px;
+      }
+    {% else %}
+      #{{section.id}}.desktop .title {
+        font-family: Saira;
+        font-size: 50px;
+        font-style: normal;
+        font-weight: 800;
+        line-height: 46px;
+        letter-spacing: 0em;
+        text-align: center;
+        color: #E44E19;
+        padding: 50px 0 30px 0;
+        justify-content: center;
+      }
+    {% endif %}
+
+  </style>
+
+  <div id="{{section.id}}" class="desktop section-heading-image-section-custom-new fox-hide--small">
+    <div class="wrapper">
+      <h2 class="title flex"><span>{{ section.settings.section_name }}</span></h2>
+      <div class="flex content">
+        <img class="flex image lazyload" data-src="{{ section.settings.main_image_desktop | img_url: 'original' }}" loading="lazy"/>
+      </div>
+    </div>
+  </div>
+{%- endif -%}
+
+{% schema %}
+  {
+    "name": "Product - Head&pic new",
+    "class": "heading-image-section-custom-new",
+    "settings": [
+	{
+      "type": "header",
+      "content": "Product - Heading & Image new"
+    },
+	{
+      "type": "checkbox",
+      "id": "enable_on_mobile",
+      "label": "Enable on mobile",
+      "default": true
+    },
+	{
+      "type": "checkbox",
+      "id": "enable_on_desktop",
+      "label": "Enable on desktop",
+      "default": false
+    },
+	{
+      "type": "checkbox",
+      "id": "red_bg_title_mob",
+      "label": "Enable red background title on mobile",
+      "default": false
+    },
+	{
+      "type": "checkbox",
+      "id": "red_bg_title_desk",
+      "label": "Enable red background title on desktop",
+      "default": false
+    },
+	{
+      "type": "color",
+      "id": "sect_bg_color_mob",
+      "label": "Section background color mobile",
+      "default": "#999999"
+    },
+	{
+      "type": "color",
+      "id": "sect_bg_color_desk",
+      "label": "Section background color desktop",
+      "default": "#999999"
+    },
+	{
+      "type": "text",
+      "id": "section_name",
+      "label": "Section name",
+      "default": "WHAT'S INSIDE"
+    },
+	{
+      "type": "image_picker",
+      "id": "main_image_mobile",
+      "label": "Main image mobile"
+    },
+	{
+      "type": "image_picker",
+      "id": "main_image_desktop",
+      "label": "Main image desktop"
+    }
+    ],
+    "presets": [
+      {
+        "name": "Product - Heading & Image new",
+        "category": "Text"
+      }
+    ]
+  }
+{% endschema %}
