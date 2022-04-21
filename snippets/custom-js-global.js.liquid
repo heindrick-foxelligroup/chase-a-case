@@ -12,13 +12,23 @@
   ready(() => {
     var searchIcon = document.querySelector('.header .mobile_search_icon');
     var searchDropdownContent = document.querySelector('.mobile_search_dropdown');
-	searchDropdownContent.classList.add('hide');
+	  searchDropdownContent.classList.add('hide');
     searchIcon.addEventListener("click", (e) => {
       if (searchDropdownContent.classList.contains("show")) {
         searchDropdownContent.classList.replace("show", "hide");
       } else if (searchDropdownContent.classList.contains("hide")) {
         searchDropdownContent.classList.replace("hide", "show");
       }
-    }); 
+    });
+
+    /* Create H1 tag if no H1 tag */
+    if(!document.querySelector('h1')) {
+      let metaTitle = document.querySelector('meta[property="og:title"]').content;
+      let h = document.createElement("H1"); // Create the H1 element 
+      let t = document.createTextNode(metaTitle); // Create a text element 
+      h.appendChild(t).className = 'hidden'; // Append the text node to the H1 element
+      h.className = 'hidden'; 
+      document.body.prepend(h); // Append the H1 element to the document body 
+    }
   });
 </script>
